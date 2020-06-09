@@ -20,4 +20,4 @@ We are using here Docker CE (Community edition)
 | docker container rm <container_id1> ...                                   | Remove stopped container. Containers to be removed should be stopped.                                                            |
 | docker container rm -f <c_id>                                             | Remove forcefully.                                                                                                               |
 
-![Image](./sourceImages/imageProcessing.png)
+![Image](./sourceImages/imageProcessing1.png)
