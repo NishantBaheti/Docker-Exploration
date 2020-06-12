@@ -21,6 +21,10 @@ We are using here Docker CE (Community edition)
 | docker container rm -f <c_id>                                             | Remove forcefully.                                                                                                               |
 | docker container inspect test_container                                   | details of container config                                                                                                      |
 | docker container stats                                                    | show stats mem usage, cpu usage etc.                                                                                             |
+| docker container run -it --name test_name image_name bash                 | run container (-i --> interactive,-t --> pseudo tty/ssh) and opens bash(changed default commands)                                |
+| docker container start -ai container_name                                 | starts existing (-ai start with given starting command) container                                                                |
+| docker container stop container_name                                      | stops existing container                                                                                                         |
+| docker container exec -it container_name bash                             | open bash in already running container                                                                                           |
 
 ### What happens behind docker run
 
