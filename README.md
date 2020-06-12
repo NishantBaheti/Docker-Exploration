@@ -6,7 +6,7 @@ We are using here Docker CE (Community edition)
 
 ### Installation Steps
 
-### Some Basic Commands
+### Some Basic Docker Commands
 
 | Command                                                                   | Description                                                                                                                      |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,3 +23,9 @@ We are using here Docker CE (Community edition)
 ### What happens behind docker run
 
 ![Image](./sourceImages/imageProcessing1.png)
+
+### Points to Notice
+
+- containers aren't mini VM's, they are just processes running on HOST Operating Systems.
+- Limited to what resource they can access.
+- Exit when process is stopped
