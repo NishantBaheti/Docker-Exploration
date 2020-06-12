@@ -19,6 +19,8 @@ We are using here Docker CE (Community edition)
 | docker container top test_container                                       | Get process/daemons running in the container                                                                                     |
 | docker container rm <container_id1> ...                                   | Remove stopped container. Containers to be removed should be stopped.                                                            |
 | docker container rm -f <c_id>                                             | Remove forcefully.                                                                                                               |
+| docker container inspect test_container                                   | details of container config                                                                                                      |
+| docker container stats                                                    | show stats mem usage, cpu usage etc.                                                                                             |
 
 ### What happens behind docker run
 
@@ -29,3 +31,24 @@ We are using here Docker CE (Community edition)
 - containers aren't mini VM's, they are just processes running on HOST Operating Systems.
 - Limited to what resource they can access.
 - Exit when process is stopped
+
+### Examples
+
+#### nginx
+
+- docker pull nginx:latest
+- docker run -p 80:80 --name nginx -d nginx:latest
+- curl localhost
+
+#### mongo
+
+- docker pull mongo:latest
+- docker run -p 27017:27017 --name mongo -d mongo:latest
+- mongo --host localhost --port 27017
+
+#### mysql
+
+- docker pull mysql:latest
+- docker run -p 3306:3306 --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -d mysql:latest
+- get first random password from docker container logs mysql (GENERATED ROOT PASSWORD)
+- mysql -uroot -p[password from previous step] -h127.0.0.1 -P3306
