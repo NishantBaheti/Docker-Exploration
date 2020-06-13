@@ -10,23 +10,23 @@ Docker used for documentation : Docker CE (Community Edition)
 
 ### Some Basic Docker Commands
 
-| Command                                                                   | Description                                                                                                                      |
-| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| docker version                                                            | Get the version information of docker.                                                                                           |
-| docker info                                                               | Get info.                                                                                                                        |
-| docker images                                                             | Get all available images in local repo.                                                                                          |
-| docker container ps / docker container ps -a                              | get running containers (-a all stopped & running)                                                                                |
-| docker container run --publish 80:80 --detach --name test_container nginx | Run a container with nginx at port 80. All the traffic is routing from host IP port 80 to container IP port 80 serving on nginx. |
-| docker container logs test_container                                      | get logs for mentioned container                                                                                                 |
-| docker container top test_container                                       | Get process/daemons running in the container                                                                                     |
-| docker container rm <container_id1> ...                                   | Remove stopped container. Containers to be removed should be stopped.                                                            |
-| docker container rm -f <c_id>                                             | Remove forcefully.                                                                                                               |
-| docker container inspect test_container                                   | details of container config                                                                                                      |
-| docker container stats                                                    | show stats mem usage, cpu usage etc.                                                                                             |
-| docker container run -it --name test_name image_name bash                 | run container (-i --> interactive,-t --> pseudo tty/ssh) and opens bash(changed default commands)                                |
-| docker container start -ai container_name                                 | starts existing (-ai start with given starting command) container                                                                |
-| docker container stop container_name                                      | stops existing container                                                                                                         |
-| docker container exec -it container_name bash                             | open bash in already running container                                                                                           |
+| Command                                                      | Description                                                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| docker version                                               | Get the version information of docker.                                                            |
+| docker info                                                  | Get info.                                                                                         |
+| docker images                                                | Get all available images in local repo.                                                           |
+| docker container ps / docker container ps -a                 | get running containers (-a all stopped & running)                                                 |
+| docker container run -p 80:80 -d --name test_container nginx | Run a container with nginx at port 80. bridge host IP 80 and container IP 80.                     |
+| docker container logs test_container                         | get logs for mentioned container                                                                  |
+| docker container top test_container                          | Get process/daemons running in the container                                                      |
+| docker container rm <container_id1> ...                      | Remove stopped container. Containers to be removed should be stopped.                             |
+| docker container rm -f <c_id>                                | Remove forcefully.                                                                                |
+| docker container inspect test_container                      | details of container config                                                                       |
+| docker container stats                                       | show stats mem usage, cpu usage etc.                                                              |
+| docker container run -it --name test_name image_name bash    | run container (-i --> interactive,-t --> pseudo tty/ssh) and opens bash(changed default commands) |
+| docker container start -ai container_name                    | starts existing (-ai start with given starting command) container                                 |
+| docker container stop container_name                         | stops existing container                                                                          |
+| docker container exec -it container_name bash                | open bash in already running container                                                            |
 
 ### What happens behind docker run
 
@@ -62,3 +62,8 @@ Docker used for documentation : Docker CE (Community Edition)
 - mysql -uroot -p[password from previous step] -h127.0.0.1 -P3306
 
 ### Docker Networks
+
+| Command                                                                             | Description   |
+| ----------------------------------------------------------------------------------- | ------------- |
+| docker container port container_name                                                | get port info |
+| docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_name | get IP        |
