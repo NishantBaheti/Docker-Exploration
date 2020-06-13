@@ -8,6 +8,8 @@ Docker used for documentation : Docker CE (Community Edition)
 
 ### Installation Steps
 
+- www
+
 ### Some Basic Docker Commands
 
 | Command                                                      | Description                                                                                       |
@@ -62,6 +64,8 @@ Docker used for documentation : Docker CE (Community Edition)
 - mysql -uroot -p[password from previous step] -h127.0.0.1 -P3306
 
 ### Docker Networks
+
+![concept3](./sourceImages/networking.png)
 
 | Command                                                                             | Description   |
 | ----------------------------------------------------------------------------------- | ------------- |
