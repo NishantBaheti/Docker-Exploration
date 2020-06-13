@@ -34,9 +34,11 @@ Docker used for documentation : Docker CE (Community Edition)
 
 ### Points to Notice
 
-- containers aren't mini VM's, they are just processes running on HOST Operating Systems.
+- containers aren't mini VM's, they are just processes(binary files) running on HOST Operating Systems.
 - Limited to what resource they can access.
 - Exit when process is stopped
+
+![concept2](./sourceImages/dockerVsVM.png)
 
 ### Examples
 
@@ -58,3 +60,5 @@ Docker used for documentation : Docker CE (Community Edition)
 - docker run -p 3306:3306 --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -d mysql:latest
 - get first random password from docker container logs mysql (GENERATED ROOT PASSWORD)
 - mysql -uroot -p[password from previous step] -h127.0.0.1 -P3306
+
+### Docker Networks
