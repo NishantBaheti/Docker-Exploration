@@ -77,3 +77,9 @@
 | docker network connect net_id container_id                                          | attach                                              |
 | docker network disconnect net_id container_id                                       | detach                                              |
 | docker container run --name c_name --network net_name image_name                    | specifying network name in container while starting |
+
+### DNS Naming
+
+- containers cant rely on IP's for inter-communication.
+- one container can communicate with another in same network with container name(instead of IP).
+- it is easier in docker compose.
