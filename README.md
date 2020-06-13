@@ -1,8 +1,8 @@
 # Docker-Exploration
 
-![logo](./sourceImages/logo.png)
+### Docker used for documentation : Docker CE (Community Edition)
 
-Docker used for documentation : Docker CE (Community Edition)
+![logo](./sourceImages/logo.png)
 
 ![concept1](https://docs.docker.com/engine/images/architecture.svg)
 
@@ -67,7 +67,13 @@ Docker used for documentation : Docker CE (Community Edition)
 
 ![concept3](./sourceImages/networking.png)
 
-| Command                                                                             | Description   |
-| ----------------------------------------------------------------------------------- | ------------- |
-| docker container port container_name                                                | get port info |
-| docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_name | get IP        |
+| Command                                                                             | Description                                         |
+| ----------------------------------------------------------------------------------- | --------------------------------------------------- |
+| docker container port container_name                                                | get port info                                       |
+| docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_name | get IP                                              |
+| docker network ls                                                                   | show networks                                       |
+| docker network inspect net_name                                                     | inspect a network                                   |
+| docker network create --driver                                                      | create a network                                    |
+| docker network connect net_id container_id                                          | attach                                              |
+| docker network disconnect net_id container_id                                       | detach                                              |
+| docker container run --name c_name --network net_name image_name                    | specifying network name in container while starting |
