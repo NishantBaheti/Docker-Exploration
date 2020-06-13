@@ -4,6 +4,8 @@
 
 We are using here Docker CE (Community edition)
 
+![concept1](https://docs.docker.com/engine/images/architecture.svg)
+
 ### Installation Steps
 
 ### Some Basic Docker Commands
