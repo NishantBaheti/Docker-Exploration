@@ -2,7 +2,7 @@
 
 ![logo](./sourceImages/logo.png)
 
-We are using here Docker CE (Community edition)
+Docker used for documentation : Docker CE (Community Edition)
 
 ![concept1](https://docs.docker.com/engine/images/architecture.svg)
 
