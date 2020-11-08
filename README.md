@@ -129,3 +129,21 @@ example of layers:
 ### Image representation
 
         <user>/<repo>:<tag>
+
+## DOCKERFILE
+
+Dockerfile is a recipe for creating image.
+
+| Command                         | Description                   |
+| ------------------------------- | ----------------------------- |
+| docker build -f some-dockerfile | build image from a dockerfile |
+
+| Keyword    | Description                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------------- |
+| FROM       | All dockerfile must have to minimal distribution. want to go completely from scratch use "FROM scratch" |
+| ENV        | Setting up environment variables. inject main key/values for image.                                     |
+| RUN        | Run shell commads                                                                                       |
+| EXPOSE     | Expose ports on docker virtual network still need to use -p / -P on host os                             |
+| CMD        | Final command to be run every time container is launched/started                                        |
+| COPY       | Copy from local(host) os to docker(guest/virtual) os                                                    |
+| ENTRYPOINT | Entrypoint for a container at runtime                                                                   |
