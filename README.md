@@ -26,6 +26,7 @@
 | docker container start -ai container_name                    | starts existing (-ai start with given starting command) container                                 |
 | docker container stop container_name                         | stops existing container                                                                          |
 | docker container exec -it container_name bash                | open bash in already running container                                                            |
+| docker history image_name:tag                                | layer information of the image                                                                    |
 
 ### Port
 
@@ -107,3 +108,24 @@
 - Not a complete OS. No kerel ,kernel modules etc.
 
 ### Image Layers
+
+| image  |
+| ------ |
+| env    |
+| apt    |
+| ubuntu |
+
+| image1        | image2          |                                         |
+| ------------- | --------------- | --------------------------------------- |
+| port          | other operation | only diff is added in runtime container |
+| copy          | copy            | common till here                        |
+| apt           | apt             |                                         |
+| Debian jessie | Debain jessie   |                                         |
+
+example of layers:
+
+![imagelayers](./sourceImages/imagelayers.png)
+
+### Image representation
+
+        <user>/<repo>:<tag>
