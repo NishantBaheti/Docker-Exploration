@@ -150,6 +150,7 @@ Dockerfile is a recipe for creating image.
 | ENTRYPOINT | Entrypoint for a container at runtime                                                                   |
 | WORKDIR    | is prefered to using "RUN cd /some/path"                                                                |
 
-        It is adviced to keep least changing things in the docker images to keep on top(initial steps) and more variable
-        things in later steps so that whenver any step changes or updates till that step cache will help to speed up the
-        process of building the image.
+        It is adviced to keep least changing things in the
+        docker images to keep on top(initial steps) and more
+        variable things in later steps so that whenver any step changes or updates till that step cache will help to
+        speed up the process of building the image.
