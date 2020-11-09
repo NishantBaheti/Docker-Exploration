@@ -134,9 +134,10 @@ example of layers:
 
 Dockerfile is a recipe for creating image.
 
-| Command                         | Description                   |
-| ------------------------------- | ----------------------------- |
-| docker build -f some-dockerfile | build image from a dockerfile |
+| Command                               | Description                                                             |
+| ------------------------------------- | ----------------------------------------------------------------------- |
+| docker image build -f some-dockerfile | build image from a dockerfile                                           |
+| docker image build -t custom_nginx .  | build docker image with tag custom_nginx from current working directory |
 
 | Keyword    | Description                                                                                             |
 | ---------- | ------------------------------------------------------------------------------------------------------- |
@@ -147,3 +148,8 @@ Dockerfile is a recipe for creating image.
 | CMD        | Final command to be run every time container is launched/started                                        |
 | COPY       | Copy from local(host) os to docker(guest/virtual) os                                                    |
 | ENTRYPOINT | Entrypoint for a container at runtime                                                                   |
+| WORKDIR    | is prefered to using "RUN cd /some/path"                                                                |
+
+        It is adviced to keep least changing things in the docker images to keep on top(initial steps) and more variable
+        things in later steps so that whenver any step changes or updates till that step cache will help to speed up the
+        process of building the image.
