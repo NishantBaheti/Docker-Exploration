@@ -4,7 +4,7 @@
 
 ![logo](./sourceImages/logo.png)
 
-![concept1](https://docs.docker.com/engine/images/architecture.svg)
+![concept1](./sourceImages/architecture.svg)
 
 ### Some Basic Docker Commands
 
