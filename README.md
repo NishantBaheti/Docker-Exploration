@@ -154,3 +154,22 @@ Dockerfile is a recipe for creating image.
         docker images to keep on top(initial steps) and more
         variable things in later steps so that whenver any step changes or updates till that step cache will help to
         speed up the process of building the image.
+
+## PRUNE
+
+| Command             | Description                 |
+| ------------------- | --------------------------- |
+| docker image prune  | removbe all dangling images |
+| docker system prune | remobe everything           |
+
+## Container lifetime and persistent data
+
+1. immutable (unchanging) and ephemeral (temporary/ disposable).
+1. "immutable infrastructure" : only re-deploy containers, never change.
+1. But if there is some data that has to be present (like database or unique data).
+1. data can be preserved when container is getting updated with latest version.
+   docker gives us feature to ensure "separation of concerns".
+1. This is called as "Presistent data".
+1. 2 solutions for this - Volumns and Bind Mounts.
+1. <b> VOLUMES </b> : make special location outside of container UFS(union file system).
+1. <b> BIND MOUNT </b> : link container path to host path.
