@@ -209,4 +209,5 @@ Dockerfile is a recipe for creating image.
 1.  -v [/host/fs/path]:[/container/fs/path]
 
 1.  Try
-    docker container run -it -d -p 3000:80 -v /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/html nginx:latest
+
+        docker container run -it -d -p 3000:80 -v /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/html nginx:latest
