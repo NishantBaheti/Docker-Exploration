@@ -139,16 +139,17 @@ Dockerfile is a recipe for creating image.
 | docker image build -f some-dockerfile | build image from a dockerfile                                           |
 | docker image build -t custom_nginx .  | build docker image with tag custom_nginx from current working directory |
 
-| Keyword    | Description                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------- |
-| FROM       | All dockerfile must have to minimal distribution. want to go completely from scratch use "FROM scratch" |
-| ENV        | Setting up environment variables. inject main key/values for image.                                     |
-| RUN        | Run shell commads                                                                                       |
-| EXPOSE     | Expose ports on docker virtual network still need to use -p / -P on host os                             |
-| CMD        | Final command to be run every time container is launched/started                                        |
-| COPY       | Copy from local(host) os to docker(guest/virtual) os                                                    |
-| ENTRYPOINT | Entrypoint for a container at runtime                                                                   |
-| WORKDIR    | is prefered to using "RUN cd /some/path"                                                                |
+| Keyword    | Description                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FROM       | All dockerfile must have to minimal distribution. want to go completely from scratch use "FROM scratch"                                                       |
+| ENV        | Setting up environment variables. inject main key/values for image.                                                                                           |
+| RUN        | Run shell commads                                                                                                                                             |
+| EXPOSE     | Expose ports on docker virtual network still need to use -p / -P on host os                                                                                   |
+| CMD        | Final command to be run every time container is launched/started                                                                                              |
+| COPY       | Copy from local(host) os to docker(guest/virtual) os                                                                                                          |
+| ENTRYPOINT | Entrypoint for a container at runtime                                                                                                                         |
+| WORKDIR    | is prefered to using "RUN cd /some/path"                                                                                                                      |
+| VOLUMNE    | Create a new volume location and assign it to the directory in the container will outlive the container when container is updated. (requires manual deletion) |
 
         It is adviced to keep least changing things in the
         docker images to keep on top(initial steps) and more
@@ -173,3 +174,39 @@ Dockerfile is a recipe for creating image.
 1. 2 solutions for this - Volumns and Bind Mounts.
 1. <b> VOLUMES </b> : make special location outside of container UFS(union file system).
 1. <b> BIND MOUNT </b> : link container path to host path.
+
+## PERSISTENT DATA
+
+- ### DATA VOLUMNS
+
+1. Create a new volume location and assign it to the directory in the container
+1. will outlive the container when container is updated.
+1. requires manual deletion
+
+![volumeInfo](./sourceImages/volumeInfo.png)
+
+| Command                           | Description              |
+| --------------------------------- | ------------------------ |
+| docker volume ls                  | list of volumes          |
+| docker volume inspect volume_name | information about volume |
+| docker volume create volumne_name | create volume            |
+
+![volumes1](./sourceImages/volumes1.png)
+
+        docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql:latest
+
+- if name is provided then it will register by name otherwise by default a random name would be generated.
+- -v [name]:[path/to/volume]
+
+![volumes2](./sourceImages/volumes2.png)
+
+- ### BIND MOUNTING
+
+1.  Maps a host file or dir to container file or directory
+1.  basically two locations pointing to same file
+1.  Skips UFS, host files overwrite any in container
+1.  Cant use Dockerfile, has to be mentioned in docker container run command.
+1.  -v [/host/fs/path]:[/container/fs/path]
+
+1.  Try
+    docker container run -it -d -p 3000:80 -v /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/html nginx:latest
