@@ -177,7 +177,7 @@ Dockerfile is a recipe for creating image.
 
 ## PERSISTENT DATA
 
-- ### DATA VOLUMNS
+- ### DATA VOLUMES
 
 1. Create a new volume location and assign it to the directory in the container
 1. will outlive the container when container is updated.
