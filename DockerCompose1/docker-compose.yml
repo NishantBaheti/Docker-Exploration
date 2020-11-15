@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  nginx:
+    image: "nginx:latest"
+    volumes:
+      - /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/htmlexample
+    ports:
+      - "3000:80"

@@ -149,7 +149,8 @@ Dockerfile is a recipe for creating image.
 | COPY       | Copy from local(host) os to docker(guest/virtual) os                                                                                                          |
 | ENTRYPOINT | Entrypoint for a container at runtime                                                                                                                         |
 | WORKDIR    | is prefered to using "RUN cd /some/path"                                                                                                                      |
-| VOLUMNE    | Create a new volume location and assign it to the directory in the container will outlive the container when container is updated. (requires manual deletion) |
+| VOLUME     | Create a new volume location and assign it to the directory in the container will outlive the container when container is updated. (requires manual deletion) |
+| ADD        |                                                                                                                                                               |
 
         It is adviced to keep least changing things in the
         docker images to keep on top(initial steps) and more
@@ -195,19 +196,40 @@ Dockerfile is a recipe for creating image.
 
         docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql:latest
 
-- if name is provided then it will register by name otherwise by default a random name would be generated.
+- if name is provided then it will register by name otherwise by default a random name would be generated. (Named volumes)
 - -v [name]:[path/to/volume]
 
 ![volumes2](./sourceImages/volumes2.png)
 
 - ### BIND MOUNTING
 
-1.  Maps a host file or dir to container file or directory
-1.  basically two locations pointing to same file
-1.  Skips UFS, host files overwrite any in container
+1.  Maps a host file or dir to container file or directory.
+1.  basically two locations pointing to same file.
+1.  Skips UFS, host files overwrite any in container.
 1.  Cant use Dockerfile, has to be mentioned in docker container run command.
 1.  -v [/host/fs/path]:[/container/fs/path]
 
 1.  Try
 
-        docker container run -it -d -p 3000:80 -v /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/html nginx:latest
+        docker container run -it -d -p 3000:80 --name nginx -v /home/nishant/Desktop/Docker-Exploration/htmlexample:/usr/share/nginx/html nginx:latest
+
+# Docker Compose
+
+- Configure relationships between containers.
+- Save docker container run settings in easy-to-read file
+- One liner developer env setup.
+- 1. YAML file - containers, networks, volumes, env.
+  1. CLI tool - docker-compose
+
+## docker-compose CLI
+
+- CLI tool is not a production grade tool but ideal for development and test.
+
+| Command              | Description                                                |
+| -------------------- | ---------------------------------------------------------- |
+| docker-compose up    | setup volumes,networks and start all containers            |
+| docker-compose down  | stop all containers and remove containers/vols/nets        |
+| docker-compose up -d | setup volumes,networks and start all containers and detach |
+| docker-compose ps    | get services running                                       |
+| docker-compose run   |                                                            |
+| docker-compose stop  |                                                            |
