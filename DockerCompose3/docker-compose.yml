@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: "nginx-custom"
+    ports:
+      - "3000:80"

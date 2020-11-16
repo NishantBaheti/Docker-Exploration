@@ -218,18 +218,44 @@ Dockerfile is a recipe for creating image.
 - Configure relationships between containers.
 - Save docker container run settings in easy-to-read file
 - One liner developer env setup.
-- 1. YAML file - containers, networks, volumes, env.
+- 1. YAML file - containers, networks, volumes, env.(default docker-compose.yml/yaml)
   1. CLI tool - docker-compose
 
 ## docker-compose CLI
 
 - CLI tool is not a production grade tool but ideal for development and test.
 
-| Command              | Description                                                |
-| -------------------- | ---------------------------------------------------------- |
-| docker-compose up    | setup volumes,networks and start all containers            |
-| docker-compose down  | stop all containers and remove containers/vols/nets        |
-| docker-compose up -d | setup volumes,networks and start all containers and detach |
-| docker-compose ps    | get services running                                       |
-| docker-compose run   |                                                            |
-| docker-compose stop  |                                                            |
+| Command                        | Description                                                             |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| docker-compose up              | setup volumes,networks and start all containers                         |
+| docker-compose up -f file_name | setup volumes,networks and start all containers with a custom file_name |
+| docker-compose down            | stop all containers and remove containers/vols/nets                     |
+| docker-compose up -d           | setup volumes,networks and start all containers and detach              |
+| docker-compose ps              | get services running                                                    |
+| docker-compose run             |                                                                         |
+| docker-compose stop            |                                                                         |
+
+# Containers Everywhere
+
+### Some major tasks
+
+- automate container lifecycle
+- easily scale up/down/out/in
+- container recreation upon failing
+- replace container without downtime (blue/green deploy)
+- control/track container started
+- create cross-node virtual network
+- only trusted servers run containers
+- store secrets, keys, passwords and access them in right containers
+
+# Docker Swarm - container orchestration
+
+![swarm5](./sourceImages/swarm5.png)
+
+- Swarm mode is a clustering solution built inside Docker
+- docker swarm, docker node, docker service, docker stack, docker secret
+
+![swarm1](./sourceImages/swarm1.png)
+![swarm2](./sourceImages/swarm2.png)
+![swarm3](./sourceImages/swarm3.png)
+![swarm4](./sourceImages/swarm4.png)
