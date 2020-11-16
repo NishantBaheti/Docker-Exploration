@@ -259,3 +259,18 @@ Dockerfile is a recipe for creating image.
 ![swarm2](./sourceImages/swarm2.png)
 ![swarm3](./sourceImages/swarm3.png)
 ![swarm4](./sourceImages/swarm4.png)
+
+## docker swarm init
+
+- PKI and security automation
+  1. Root signing certificate created for swarm
+  1. certificate is issued for first manager node
+  1. join tokens are created
+- RAFT database created to store root CA, configs and secrets
+  1. no additional key value storage system
+  1. replicates logs amongs managers.
+
+| Command          | Description     |
+| ---------------- | --------------- |
+| docker swam init | initialize      |
+| docker node ls   | list down nodes |
