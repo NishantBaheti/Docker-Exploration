@@ -270,7 +270,12 @@ Dockerfile is a recipe for creating image.
   1. no additional key value storage system
   1. replicates logs amongs managers.
 
-| Command          | Description     |
-| ---------------- | --------------- |
-| docker swam init | initialize      |
-| docker node ls   | list down nodes |
+| Command                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| docker swam init                                   | initialize                   |
+| docker node ls                                     | list down nodes              |
+| docker service create                              | creating a container service |
+| docker service ps service_name                     | running process              |
+| docker service update service_id --replicas number | update replicas              |
+
+![docker-service1](./sourceImages/dockerService1.png)
