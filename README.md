@@ -272,7 +272,7 @@ Dockerfile is a recipe for creating image.
 
 | Command                                            | Description                  |
 | -------------------------------------------------- | ---------------------------- |
-| docker swam init                                   | initialize                   |
+| docker swarm init                                  | initialize                   |
 | docker node ls                                     | list down nodes              |
 | docker service create                              | creating a container service |
 | docker service ps service_name                     | running process              |
