@@ -67,6 +67,11 @@
 - get first random password from docker container logs mysql (GENERATED ROOT PASSWORD)
 - mysql -uroot -p[password from previous step] -h127.0.0.1 -P3306
 
+  or
+
+- docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
+- mysql -uroot -p my-secret-pw -h127.0.0.1 -P3306
+
 ### Docker Networks
 
 ![concept3](./sourceImages/networking.png)
