@@ -6,6 +6,11 @@
 
 ![concept1](./sourceImages/architecture.svg)
 
+- go to https://get.docker.com/
+- take the script 
+- install it- easy-peasy
+- curl -sSL https://get.docker.com/ | sh
+
 ### Some Basic Docker Commands
 
 | Command                                                      | Description                                                                                       |
@@ -280,7 +285,56 @@ Dockerfile is a recipe for creating image.
 | docker swarm init                                  | initialize                   |
 | docker node ls                                     | list down nodes              |
 | docker service create                              | creating a container service |
-| docker service ps service_name                     | running process              |
-| docker service update service_id --replicas number | update replicas              |
-
+| docker service ls                                  | list down services           |
+| docker service ps service_name                     | process information          |
+| docker service update service_id --replicas number | update replicas              | 
+| docker service rm service_name                     | remove service and delete all containers one by one |
 ![docker-service1](./sourceImages/dockerService1.png)
+
+
+* if a service is running and we stop one of its replicas by running "docker container rm -f some_id/name" then it will show in the results of "docker service ls" (one less replica) but within seconds it will again start it and it will show in the result if "docker service ps service_name" that one service was stopped.
+
+![docker-service2](./sourceImages/dockerService2.png)
+
+
+## PLAYGROUND
+
+* https://labs.play-with-docker.com 
+* use above link to create instances and play with them 
+
+
+## Steps
+
+- get 3 instances 
+- in one instance run 
+
+        docker swarm  init --advertise-addr <public_ip>
+
+- this will give a url like 
+        
+        docker swarm join --token <some token>
+
+- run this command in other two instances to join them in this cluster
+- now docker swarm commands cant be run in these worker nodes
+- Run in the leader instance 
+
+        docker node ls
+
+![dokcer-swarm1](./sourceImages/dockerSwarm1.png)
+
+- change the role of a node
+
+![docker-swarm2](./sourceImages/dockerSwarm2.png)
+
+- get the manager token to join anytime and add instance with predefined manager role
+
+![docker-swarm3](./sourceImages/dockerSwarm3.png)
+
+- get the worker token to join anytime 
+
+![docker-swarm4](./sourceImages/dockerSwarm4.png)
+
+- now create a service with 3 replicas
+
+![docker-swarm5](./sourceImages/dockerSwarm5.png)
+![docker-swarm6](./sourceImages/dockerSwarm6.png)
