@@ -416,3 +416,91 @@ Dockerfile is a recipe for creating image.
 - runs on top of docker (usually)
 - provides api/cli to manage containers across servers
 
+
+### sandbox
+
+- https://labs.play-with-k8s.com/
+- katacoda
+
+### Other flavours
+
+- minikube
+- MicroK8s
+
+### Cloud providers
+
+- Azure Kubernetes Services (AKS)
+- AWS (EKS)
+- Google Cloud
+
+
+## Terminologies
+- kubectl - cube control (cli)
+- node - single server inside the cluster
+- kubelet - Kubernetes agent running on nodes
+        
+        In swarm in build docker swarm agent is available for workers to talk back to the master nodes kubernetes needs one explicitly
+
+- control plane - set of containers that manages the clusters
+  - includes api server , scheduler, control manager, etcd and more 
+  - sometimes called the master 
+
+                MASTER
+        |=======================|
+        | etcd                  |
+        | api                   |
+        | scheduler             |
+        | controller manager    |
+        | core dns              |
+        | .                     |
+        | .                     |
+        | based on need         |
+        |                       |
+        | Docker                |
+        |=======================|
+
+                NODE
+        |=======================|
+        | kubelet               |
+        | kube-proxy            |
+        | .                     |
+        | .                     |
+        | based on need         |
+        |                       |
+        |                       |
+        |                       |
+        | Docker                |
+        |=======================|
+
+- pod - one or more containers running together on one Node 
+  - basic unit of deployment, containers are always in pods
+- controller - for creating /updating pods and other objects
+  - Deployment
+  - ReplicaSet
+  - StatefulSet
+  - DaemonSet
+  - Job
+  - CronJob
+- service - network endpoint to connect to a pod
+- namespace - filter group
+- secrets, ConfigMaps ...
+
+## in play with k8s 
+
+| Snaps                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| ![kube1](./sourceImages/kube1.png) | starting master node |
+| ![kube2](./sourceImages/kube2.png) | getting version (one client and one server ) |
+
+
+
+
+
+
+
+
+
+
+
+
+
