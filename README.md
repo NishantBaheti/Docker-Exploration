@@ -338,3 +338,81 @@ Dockerfile is a recipe for creating image.
 
 ![docker-swarm5](./sourceImages/dockerSwarm5.png)
 ![docker-swarm6](./sourceImages/dockerSwarm6.png)
+
+
+# Overlay Multi Host Networking
+
+- choose --driver overlay when creating network
+- for container to container traffic inside a Single Swarm
+- Optional IPSec (AES) encryption on network creation
+- Each service can connect to multiple networks
+
+| Command                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| docker network create --driver overlay network_name| create a overlay network     |
+|![docker-network1](./sourceImages/dockerNetwork1.png) | creating a network |
+|![docker-network3](./sourceImages/dockerNetwork3.png) | creating two services on one network|
+|![docker-network2](./sourceImages/dockerNetwork2.png) | accessing them by their service name (look at host) |
+
+
+## Routing Mesh (Internal Load Balancer)
+
+- Routes/distributes ingress (incoming) packets for a service to a proper task 
+- spans all the nodes
+- Uses IPVS from linux kernel (kernel primitives)
+- Load balances swarm services across their tasks
+- ways to work
+  - container to container overlay network (talking to virtual IP/VIP)
+  - external traffic incoming to publishing ports (all nodes listen)
+- stateless load balancing
+
+# docker stack 
+
+## Production Grade Compose
+- New layer of abstraction to swarms called stacks
+- accepts compose files
+- 'docker stack deploy'
+
+                 services  task and container
+                     ^          ^
+                || service1 -| node 1  |  
+                ||          -| node 2  |  || Volumes ||
+                ||-------------------- |
+        Stack ->|| service2 -| node 1  |
+                ||          -| node 2  |
+                ||-------------------- | || Overlay Networks ||
+                || service3 -| node 1  |
+                ||          -| node 2  |
+
+
+| Command                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| docker stack deploy -c compose_file app_name | queue deploy services from a compose file |
+| docker stack ls | list all the apps in the stack |
+| docker stack ps app_name | list down services in the app |
+| docker stack services app_name | gives important info about services like replicas,mode etc. | 
+
+# docker secrets 
+
+- key value store in docker run time 
+- attach it to services only those can use it 
+
+| Command                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| docker secret create secret_name secret_file.txt | put value in secret by a file |
+| echo "some_value" \| docker secret create secret_name - | put value in secret by echoing |
+| docker secret ls | list down secrets |
+|--------|--------|
+| with service ||
+| docker service create --name service_name --secret secret_name | create a service with a secret mentioned that can be used by container | 
+| docker service update --secret-rm secret_name | remove secret |
+
+# Swarm App LifeCycle 
+        TODO
+
+# Kubernetes
+
+- container orchestration
+- runs on top of docker (usually)
+- provides api/cli to manage containers across servers
+
