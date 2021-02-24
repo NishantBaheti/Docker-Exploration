@@ -485,16 +485,48 @@ Dockerfile is a recipe for creating image.
 - namespace - filter group
 - secrets, ConfigMaps ...
 
+
 ## in play with k8s 
+
+- I created 3 instances
+- I am going to make node1 as master/ manager node
+- Rest of the nodes will be worker nodes
+- Main goal is to create deplotyments
+
+
 
 | Snaps                                            | Description                  |
 | -------------------------------------------------- | ---------------------------- |
-| ![kube1](./sourceImages/kube1.png) | starting master node |
+| kubectl get nodes | get nodes connected to the cluster |
+| ![kube1](./sourceImages/kube1.png) | starting master node (command already provided with k8s playground) |
 | ![kube2](./sourceImages/kube2.png) | getting version (one client and one server ) |
+| kubectl run my_nginx --image nginx ![kube3](./sourceImages/kube3.png) | run a pod |
+| kubectl get pods ![kube4](./sourceImages/kube4.png) | get pods |
+| kubectl create deployment my-nginx --image nginx ![kube6](./sourceImages/kube7.png) ![kube7](./sourceImages/kube8.png) | create deployment |
+| ![kube5](./sourceImages/kube5.png) | get all contents |
+| kubectl delete deployment my-nginx | delete the deployment |
+        
+        Pods --> ReplicaSet --> Deployment
+
+
+![kube6](./sourceImages/kube6.png)
+
+## Scaling ReplicaSets
+
+![kube9](./sourceImages/kube9.png)
+![kube10](./sourceImages/kube10.png)
 
 
 
+| Snaps                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+| ![kube11](./sourceImages/kube11.png) | logs |
+| ![kube12](./sourceImages/kube12.png) | logs follow changes and tail last 1 line logs |
+| ![kube13](./sourceImages/kube13.png) | describe pod/deployments etc |
+| ![kube14](./sourceImages/kube14.png) | watch |
 
+
+## Service Types
 
 
 
