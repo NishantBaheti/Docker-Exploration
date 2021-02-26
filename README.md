@@ -280,14 +280,14 @@ Dockerfile is a recipe for creating image.
   1. no additional key value storage system
   1. replicates logs amongs managers.
 
-| Command                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| docker swarm init                                  | initialize                   |
-| docker node ls                                     | list down nodes              |
-| docker service create                              | creating a container service |
-| docker service ls                                  | list down services           |
-| docker service ps service_name                     | process information          |
-| docker service update service_id --replicas number | update replicas              | 
+| Command                                            | Description                                         |
+| -------------------------------------------------- | --------------------------------------------------- |
+| docker swarm init                                  | initialize                                          |
+| docker node ls                                     | list down nodes                                     |
+| docker service create                              | creating a container service                        |
+| docker service ls                                  | list down services                                  |
+| docker service ps service_name                     | process information                                 |
+| docker service update service_id --replicas number | update replicas                                     |
 | docker service rm service_name                     | remove service and delete all containers one by one |
 ![docker-service1](./sourceImages/dockerService1.png)
 
@@ -347,12 +347,12 @@ Dockerfile is a recipe for creating image.
 - Optional IPSec (AES) encryption on network creation
 - Each service can connect to multiple networks
 
-| Command                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| docker network create --driver overlay network_name| create a overlay network     |
-|![docker-network1](./sourceImages/dockerNetwork1.png) | creating a network |
-|![docker-network3](./sourceImages/dockerNetwork3.png) | creating two services on one network|
-|![docker-network2](./sourceImages/dockerNetwork2.png) | accessing them by their service name (look at host) |
+| Command                                               | Description                                         |
+| ----------------------------------------------------- | --------------------------------------------------- |
+| docker network create --driver overlay network_name   | create a overlay network                            |
+| ![docker-network1](./sourceImages/dockerNetwork1.png) | creating a network                                  |
+| ![docker-network3](./sourceImages/dockerNetwork3.png) | creating two services on one network                |
+| ![docker-network2](./sourceImages/dockerNetwork2.png) | accessing them by their service name (look at host) |
 
 
 ## Routing Mesh (Internal Load Balancer)
@@ -385,27 +385,27 @@ Dockerfile is a recipe for creating image.
                 ||          -| node 2  |
 
 
-| Command                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| docker stack deploy -c compose_file app_name | queue deploy services from a compose file |
-| docker stack ls | list all the apps in the stack |
-| docker stack ps app_name | list down services in the app |
-| docker stack services app_name | gives important info about services like replicas,mode etc. | 
+| Command                                      | Description                                                 |
+| -------------------------------------------- | ----------------------------------------------------------- |
+| docker stack deploy -c compose_file app_name | queue deploy services from a compose file                   |
+| docker stack ls                              | list all the apps in the stack                              |
+| docker stack ps app_name                     | list down services in the app                               |
+| docker stack services app_name               | gives important info about services like replicas,mode etc. |
 
 # docker secrets 
 
 - key value store in docker run time 
 - attach it to services only those can use it 
 
-| Command                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| docker secret create secret_name secret_file.txt | put value in secret by a file |
-| echo "some_value" \| docker secret create secret_name - | put value in secret by echoing |
-| docker secret ls | list down secrets |
-|--------|--------|
-| with service ||
-| docker service create --name service_name --secret secret_name | create a service with a secret mentioned that can be used by container | 
-| docker service update --secret-rm secret_name | remove secret |
+| Command                                                        | Description                                                            |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| docker secret create secret_name secret_file.txt               | put value in secret by a file                                          |
+| echo "some_value" \| docker secret create secret_name -        | put value in secret by echoing                                         |
+| docker secret ls                                               | list down secrets                                                      |
+| --------                                                       | --------                                                               |
+| with service                                                   |                                                                        |
+| docker service create --name service_name --secret secret_name | create a service with a secret mentioned that can be used by container |
+| docker service update --secret-rm secret_name                  | remove secret                                                          |
 
 # Swarm App LifeCycle 
         TODO
@@ -495,16 +495,16 @@ Dockerfile is a recipe for creating image.
 
 
 
-| Snaps                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| kubectl get nodes | get nodes connected to the cluster |
-| ![kube1](./sourceImages/kube1.png) | starting master node (command already provided with k8s playground) |
-| ![kube2](./sourceImages/kube2.png) | getting version (one client and one server ) |
-| kubectl run my_nginx --image nginx ![kube3](./sourceImages/kube3.png) | run a pod |
-| kubectl get pods ![kube4](./sourceImages/kube4.png) | get pods |
-| kubectl create deployment my-nginx --image nginx ![kube6](./sourceImages/kube7.png) ![kube7](./sourceImages/kube8.png) | create deployment |
-| ![kube5](./sourceImages/kube5.png) | get all contents |
-| kubectl delete deployment my-nginx | delete the deployment |
+| Snaps                                                                                                                  | Description                                                         |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| kubectl get nodes                                                                                                      | get nodes connected to the cluster                                  |
+| ![kube1](./sourceImages/kube1.png)                                                                                     | starting master node (command already provided with k8s playground) |
+| ![kube2](./sourceImages/kube2.png)                                                                                     | getting version (one client and one server )                        |
+| kubectl run my_nginx --image nginx ![kube3](./sourceImages/kube3.png)                                                  | run a pod                                                           |
+| kubectl get pods ![kube4](./sourceImages/kube4.png)                                                                    | get pods                                                            |
+| kubectl create deployment my-nginx --image nginx ![kube6](./sourceImages/kube7.png) ![kube7](./sourceImages/kube8.png) | create deployment                                                   |
+| ![kube5](./sourceImages/kube5.png)                                                                                     | get all contents                                                    |
+| kubectl delete deployment my-nginx                                                                                     | delete the deployment                                               |
         
         Pods --> ReplicaSet --> Deployment
 
@@ -518,12 +518,12 @@ Dockerfile is a recipe for creating image.
 
 
 
-| Snaps                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-| ![kube11](./sourceImages/kube11.png) | logs |
+| Snaps                                | Description                                   |
+| ------------------------------------ | --------------------------------------------- |
+| ![kube11](./sourceImages/kube11.png) | logs                                          |
 | ![kube12](./sourceImages/kube12.png) | logs follow changes and tail last 1 line logs |
-| ![kube13](./sourceImages/kube13.png) | describe pod/deployments etc |
-| ![kube14](./sourceImages/kube14.png) | watch |
+| ![kube13](./sourceImages/kube13.png) | describe pod/deployments etc                  |
+| ![kube14](./sourceImages/kube14.png) | watch                                         |
 
 
 ## Service Types
@@ -563,17 +563,39 @@ Dockerfile is a recipe for creating image.
 - Add CNAME DNS record to CoreDNS only 
 - Not used for pods , but for giving pods a DNS name that can be used outside Kubernetes cluster.
 
-| Snaps                                            | Description                  |
-| -------------------------------------------------- | ---------------------------- |
-|![kube15](./sourceImages/kube15.png) | create service expose port with cluster IP |
-|![kube16](./sourceImages/kube16.png) | create service NodePort. different than docker as left port if internal port and right one is node port for outside cluster |
-|![kube17](./sourceImages/kube17.png) | create service with LoadBalancer |
-|![kube18](./sourceImages/kube18.png) | namespaces |
+| Snaps                                | Description                                                                                                                 |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| ![kube15](./sourceImages/kube15.png) | create service expose port with cluster IP                                                                                  |
+| ![kube16](./sourceImages/kube16.png) | create service NodePort. different than docker as left port if internal port and right one is node port for outside cluster |
+| ![kube17](./sourceImages/kube17.png) | create service with LoadBalancer                                                                                            |
+| ![kube18](./sourceImages/kube18.png) | namespaces                                                                                                                  |
 
 
 # Kubernetes Management Techniques
 
-## Generators 
+## Generators (Automation behind commands)
+ 
+- Helper templates 
+- Every resource in kubernetes has a 'spec' or specification 
+
+        > kubectl create deployment smaple --iamge nginx --dry-run -o yaml
+
+- output those templates `--dry-run -o yaml`
+- these yaml defaults can be a starting points to create new ones
+
+
+| Snaps                                | Description                       |
+| ------------------------------------ | --------------------------------- |
+| ![kube19](./sourceImages/kube19.png) | Get Generator info for deployemnt |
+| ![kube20](./sourceImages/kube20.png) | Get Generator info for job        |
+| ![kube21](./sourceImages/kube21.png) | Get Generator info for expose     |
+
+
+| Imperative | Decalarative |
+| ---------- | ------------ |
+|            |              |
+|            |              |
+
 
 
 
