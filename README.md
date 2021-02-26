@@ -528,6 +528,62 @@ Dockerfile is a recipe for creating image.
 
 ## Service Types
 
+- kubectl expose creates a service for exisiting pods 
+- Service is a stable address for pod
+- it we want to connect to pod, we need a service 
+- CoreDNS allows us to resolve `services` by name 
+- Types of services :
+  1. ClusterIP
+  2. NodePort
+  3. LoadBalancer
+  4. ExternalName 
+
+
+## ClusterIP (default)
+
+- Single, Internal Virtual IP allocation 
+- Reachable within the cluster
+- pods can reach service on port number 
+
+## NodePort
+
+- High port on each node 
+- Outside the cluster 
+- port is open for every node's IP 
+- Anyone can reach node can connect 
+
+## LoadBalancer 
+
+- Controls a Load Balancer external to the cluster
+- Only available when infrastructure providers gives it (AWS ELB etc)
+- Create NodePort+ClusterIP, connect LB to NodePort to send 
+
+## ExternalName 
+
+- Add CNAME DNS record to CoreDNS only 
+- Not used for pods , but for giving pods a DNS name that can be used outside Kubernetes cluster.
+
+| Snaps                                            | Description                  |
+| -------------------------------------------------- | ---------------------------- |
+|![kube15](./sourceImages/kube15.png) | create service expose port with cluster IP |
+|![kube16](./sourceImages/kube16.png) | create service NodePort. different than docker as left port if internal port and right one is node port for outside cluster |
+|![kube17](./sourceImages/kube17.png) | create service with LoadBalancer |
+|![kube18](./sourceImages/kube18.png) | namespaces |
+
+
+# Kubernetes Management Techniques
+
+## Generators 
+
+
+
+
+
+
+
+
+
+
 
 
 
