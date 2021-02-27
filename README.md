@@ -630,8 +630,9 @@ Dockerfile is a recipe for creating image.
 | `spec` | - | all the action |
 | explain services recursively | ![kube25](./sourceImages/kube25.png) | explain services get keywords |
 | explain services description | ![kube26](./sourceImages/kube26.png) | explain services get keywords |
-| explain deployemnts description | ![kube27](./sourceImages/kube27.png) | explain services get keywords |
+| explain deployments description | ![kube27](./sourceImages/kube27.png) | explain services get keywords |
 
+- https://kubernetes.io/docs/reference/#api-reference
 
 
 
