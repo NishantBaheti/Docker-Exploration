@@ -371,7 +371,7 @@ Dockerfile is a recipe for creating image.
 ## Production Grade Compose
 - New layer of abstraction to swarms called stacks
 - accepts compose files
-- 'docker stack deploy'
+- `docker stack deploy`
 
                  services  task and container
                      ^          ^
@@ -591,10 +591,47 @@ Dockerfile is a recipe for creating image.
 | ![kube21](./sourceImages/kube21.png) | Get Generator info for expose     |
 
 
-| Imperative | Decalarative |
-| ---------- | ------------ |
-|            |              |
-|            |              |
+| Imperative                  | Decalarative                                        |
+| --------------------------- | --------------------------------------------------- |
+| how program operates        | what a program should accomplish                    |
+| ex.- making your own coffee | ex.- give instructions to a barista                 |
+| not easy to automate        | automation is good                                  |
+| know every step             | dont know current state, only final result is known |
+| -                           | requires to know all yaml keys                      |
+
+## Management approaches
+
+- Imperative commands 
+  - create, expose, edit, scale etc
+- Imperative objects 
+  - create -f file.yml , replace -f file.yml
+- Declarative objects 
+  - apply -f file.yml
+
+
+## Kubernetes Configuration YAML
+
+- Each file contains one or more configuration files
+- Each manifest describes an API object (deployment, job, secret)
+- Each mainfest needs these four parts-
+  - apiVersion:
+  - kind:
+  - metadata:
+  - spec:
+- `kubectl apply -f <directory>/`
+
+
+| info                                 | Snaps                                             | Description |
+| ------------------------------------ | ------------------------------------------------- | ----------- |
+| cluster | ![kube22](./sourceImages/kube22.png) | cluster info                                      |
+| `kind` | ![kube23](./sourceImages/kube23.png) | api resources (kind will give info for yaml file) |
+| `apiVersion` | ![kube24](./sourceImages/kube24.png) | api versions                                      |
+| `metadata` | - | only `name` of the service is required |
+| `spec` | - | all the action |
+| explain services recursively | ![kube25](./sourceImages/kube25.png) | explain services get keywords |
+| explain services description | ![kube26](./sourceImages/kube26.png) | explain services get keywords |
+| explain deployemnts description | ![kube27](./sourceImages/kube27.png) | explain services get keywords |
+
 
 
 
