@@ -619,24 +619,33 @@ Dockerfile is a recipe for creating image.
   - metadata:
   - spec:
 - `kubectl apply -f <directory>/`
+- selectors is used for patternmatching for different services 
 
 
-| info                                 | Snaps                                             | Description |
-| ------------------------------------ | ------------------------------------------------- | ----------- |
-| cluster | ![kube22](./sourceImages/kube22.png) | cluster info                                      |
-| `kind` | ![kube23](./sourceImages/kube23.png) | api resources (kind will give info for yaml file) |
-| `apiVersion` | ![kube24](./sourceImages/kube24.png) | api versions                                      |
-| `metadata` | - | only `name` of the service is required |
-| `spec` | - | all the action |
-| explain services recursively | ![kube25](./sourceImages/kube25.png) | explain services get keywords |
-| explain services description | ![kube26](./sourceImages/kube26.png) | explain services get keywords |
-| explain deployments description | ![kube27](./sourceImages/kube27.png) | explain services get keywords |
+| info                            | Snaps                                | Description                                       |
+| ------------------------------- | ------------------------------------ | ------------------------------------------------- |
+| cluster                         | ![kube22](./sourceImages/kube22.png) | cluster info                                      |
+| `kind`                          | ![kube23](./sourceImages/kube23.png) | api resources (kind will give info for yaml file) |
+| `apiVersion`                    | ![kube24](./sourceImages/kube24.png) | api versions                                      |
+| `metadata`                      | -                                    | only `name` of the service is required            |
+| `spec`                          | -                                    | all the action                                    |
+| explain services recursively    | ![kube25](./sourceImages/kube25.png) | explain services get keywords                     |
+| explain services description    | ![kube26](./sourceImages/kube26.png) | explain services get keywords                     |
+| explain deployments description | ![kube27](./sourceImages/kube27.png) | explain services get keywords                     |
 
 - https://kubernetes.io/docs/reference/#api-reference
 
+| Snaps                                | Description                                                 |
+| ------------------------------------ | ----------------------------------------------------------- |
+| ![kube28](./sourceImages/kube28.png) | find the difference between running service and updated yml |
 
 
+## Labels and Annotations
 
+- labels under metadata 
+- for grouping, filtering etc.
+- examples - tier: frontend, app: api, env: prod etc.
+- 
 
 
 
