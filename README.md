@@ -289,6 +289,8 @@ Dockerfile is a recipe for creating image.
 | docker service ps service_name                     | process information                                 |
 | docker service update service_id --replicas number | update replicas                                     |
 | docker service rm service_name                     | remove service and delete all containers one by one |
+
+
 ![docker-service1](./sourceImages/dockerService1.png)
 
 
