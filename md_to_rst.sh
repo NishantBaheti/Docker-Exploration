@@ -1,0 +1,1 @@
+pandoc README.md --from markdown --to rst -s -o readme.rst
