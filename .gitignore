@@ -1,6 +1,9 @@
 .vscode
 node_modules
 __pycache__
+_build
+_static
+_templates
 
 sslcert
 venv

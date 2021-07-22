@@ -364,8 +364,7 @@ Container lifetime and persistent data
    version. docker gives us feature to ensure “separation of concerns”.
 5. This is called as “Presistent data”.
 6. 2 solutions for this - Volumns and Bind Mounts.
-7.  VOLUMES : make special location outside of container UFS(union file
-   system).
+7.  VOLUMES : make special location outside of container UFS(union file system).
 8.  BIND MOUNT : link container path to host path.
 
 PERSISTENT DATA
