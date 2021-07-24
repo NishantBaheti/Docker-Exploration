@@ -245,6 +245,17 @@ Dockerfile is a recipe for creating image.
 | docker-compose run             |                                                                         |
 | docker-compose stop            |                                                                         |
 
+## docker-compose versioning
+
+There are three legacy versions of the Compose file format:
+
+- Version 1. This is specified by omitting a version key at the root of the YAML.
+
+- Version 2.x. This is specified with a version: '2' or version: '2.1', etc., entry at the root of the YAML.
+
+- Version 3.x, designed to be cross-compatible between Compose and the Docker Engine’s swarm mode. This is specified with a version: '3' or version: '3.1', etc., entry at the root of the YAML.
+
+
 # Containers Everywhere
 
 ### Some major tasks
