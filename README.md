@@ -422,7 +422,15 @@ There are three legacy versions of the Compose file format:
 | docker service update --secret-rm secret_name                  | remove secret                                                          |
 
 # Swarm App LifeCycle 
-        TODO
+
+> Three important things in this trilogy is swarm, stack and secrets
+
+```shell
+$ docker-compose up #for development env
+$ docker-compose up #for CI env
+$ docker stack deploy #for production env
+```
+
 
 # Kubernetes
 

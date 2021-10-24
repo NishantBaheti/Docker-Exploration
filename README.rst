@@ -740,9 +740,13 @@ docker secrets
 Swarm App LifeCycle
 ===================
 
-::
+   Three important things in this trilogy is swarm, stack and secrets
 
-       TODO
+.. code:: shell
+
+   $ docker-compose up #for development env
+   $ docker-compose up #for CI env
+   $ docker stack deploy #for production env
 
 Kubernetes
 ==========
