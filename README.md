@@ -1,5 +1,6 @@
 # Docker-Exploration
 
+
 ### Docker used for documentation : Docker CE (Community Edition)
 
 ![logo](./sourceImages/logo.png)
@@ -657,17 +658,110 @@ There are three legacy versions of the Compose file format:
 
 - labels under metadata 
 - for grouping, filtering etc.
-- examples - tier: frontend, app: api, env: prod etc.
-- 
+- examples - tier: frontend, app: api, env: prod etc.(There are no specific standards to do so, it depends on the team you are working in)
+- no meant to hold complex or large information, instead of `label` use `annotaions.`
+- filter on label used in a get
+  - ```kubectl get pods -l app=nginx```
+- apply commands only for matching labels 
+  - ```kubectl apply -f some_file.yaml -l app=nginx```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+### Label Selectors
+
+- Indicators to services and deployments, which pods are theirs to pick up. 
+  
+in above example the resources are going to match labels from selectors to classify nodes and apply things.
 
 
+## Storage in K8s
+
+`Initial idea behind containers to be immutable, distributed and replaceable (in hindsight statefulness came later on as feature to have something stored to be used if container instance changes like database)`
+
+- we can create VOLUME similar to docker swarm
+- ***2 types***
+  - Volumes
+    - Tied to lifecycle of a pod
+    - All containers in a pod can share them
+  - Persistent Volumes 
+    - Created at cluster level, outlives a Pod
+    - Sep storage config from pod
+    - multiple pods can share them
+- **CSI (Container Storage Interface)** plugins from different vendors to connect to storage to have uniformity.
 
 
+## Ingress Controller
+
+- Lets talk about http
+- How do we route outside connections based on hostname or url?
+- `ingress controller is the way to do it`.
+- Ingress controller is the way to differenciate different routes(considering all of them are using 80 or 443) hosted in a cluster.
+- It is not inherently installed in k8s.
+- Nginx is a populer one, but other examples are Taefik, HAProxy, etc.
+- Implemention is specific to controller chosen.
+
+## Custom resources
+
+[Reference](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+
+Simply just additional API extensions that are not default in k8s but they can be part of k8s functionality once added.
 
 
+## Higher Deployment Abstractions 
+
+- We have yaml files/ configurations, but how to use them for deployment.
+- `Helm` is the most populer one to do so. Helm is to k8s, what k8s is to containers. yaml templates.
+- `Compose on k8s` comes with docker desktop. Instead of going to docker stack it will ask for k8s deployment (need to try this out).
+- most distros support Helm.
+
+`New things CNAB and docker app`
+
+## Namespaces
+
+```shell
+user@user~/$ kubectl get namespaces
+user@user~/$ kubectl get all --all-namespaces
+user@user~/$ kubectl config get-contexts
+```
 
 
+## Docker Security
+[Reference](https://github.com/BretFisher/ama/issues/17)
 
+https://docs.docker.com/engine/security/
+
+https://sysdig.com/blog/20-docker-security-tools/
+
+## Docker Bench Sceurity
+
+https://github.com/docker/docker-bench-security
+
+> in a bunch of docker official images available online, there are users created `groupadd & useradd`. Our job while using those images is use the user mentioned and not run the image with root previleges.
+
+```dockerfile
+WORKDIR /app
+USER <user_name>
+```
 
 
 
