@@ -172,8 +172,8 @@ Dockerfile is a recipe for creating image.
 
 | Command             | Description                 |
 | ------------------- | --------------------------- |
-| docker image prune  | removbe all dangling images |
-| docker system prune | remobe everything           |
+| docker image prune  | remove all dangling images |
+| docker system prune | remove everything           |
 
 ## Container lifetime and persistent data
 
