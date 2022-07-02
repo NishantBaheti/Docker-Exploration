@@ -5,6 +5,17 @@
 
 .. include:: ./README.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Additional Docs
+   :name: Additional Docs
+
+   Machine Learning Exploration <https://machinelearningexploration.readthedocs.io>
+   Neural Network Doc <https://understandnn.readthedocs.io>
+   NLP Doc <https://nlpblog.readthedocs.io>
+   mightypy <https://mightypy.readthedocs.io/>
+   graphpkg <https://graphpkg.readthedocs.io/>
+
 
 Indices and tables
 ==================
